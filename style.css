@@ -168,7 +168,24 @@ nav a:hover {
 
 
 
+#pais {
+    width: 102%; /* Esta regla se aplica por defecto */
+    font-size: 14px;
+}
 
+#pais option{
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 14px;
+    }
+
+    #pais {
+        width: 106%; /* Esta regla se aplica en pantallas <= 768px */
+    }
+}
 
 
 

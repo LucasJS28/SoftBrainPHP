@@ -2,10 +2,21 @@
 session_start(); // Iniciar la sesión
 include 'nav.php';
 require_once 'Conexion.php';
+
+function validarCorreo($correo) {
+    // Utiliza una expresión regular para validar el formato del correo electrónico
+    if (preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/", $correo)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 if (isset($_SESSION["correoUsuario"])) {
     header("Location:index.php");
     exit();
 }
+
 if (isset($_POST['login'])) {
     $correoUsuario = $_POST['correoUsuario'];
     $passUsuario = $_POST['passUsuario'];
@@ -17,8 +28,7 @@ if (isset($_POST['login'])) {
         $_SESSION['correoUsuario'] = $correoUsuario;
         echo "<script>alert('Credenciales Correctas');</script>";
         echo "<script>window.location = 'cotizar.php';</script>";
-    }
-     else {
+    } else {
         // Credenciales incorrectas
         echo "<script>alert('Credenciales Incorrectas');</script>";
     }
@@ -29,24 +39,38 @@ if (isset($_POST['register'])) {
     $passUsuario = $_POST['registro_passUsuario'];
     $confirmarPassUsuario = $_POST['registro_confirmar_passUsuario'];
 
-    if ($passUsuario === $confirmarPassUsuario) {
+    // Verifica el formato y las condiciones del correo electrónico
+    if (validarCorreo($correoUsuario)) {
         $conexion = new Conexion();
-        $idUsuario = $conexion->register($correoUsuario, $passUsuario);
 
-        if ($idUsuario) {
-            // Registro exitoso
-            echo "<script>alert('Registro exitoso. ID de usuario: " . $idUsuario . "');</script>";
+        // Verifica si el correo ya existe en la base de datos
+        if ($conexion->correoExistente($correoUsuario)) {
+            // El correo ya existe, muestra un mensaje de error
+            echo "<script>alert('El correo electrónico ya está registrado');</script>";
         } else {
-            // Error en el registro
-            echo "<script>alert('Error en el registro');</script>";
+            // El correo no existe, procede con el registro
+            if ($passUsuario === $confirmarPassUsuario) {
+                $idUsuario = $conexion->register($correoUsuario, $passUsuario);
+
+                if ($idUsuario) {
+                    // Registro exitoso
+                    echo "<script>alert('Registro exitoso');</script>";
+                } else {
+                    // Error en el registro
+                    echo "<script>alert('Error en el registro');</script>";
+                }
+            } else {
+                // Las contraseñas no coinciden
+                echo "<script>alert('Las contraseñas no coinciden');</script>";
+            }
         }
     } else {
-        // Las contraseñas no coinciden
-        echo "<script>alert('Las contraseñas no coinciden');</script>";
+        // Correo electrónico no válido
+        echo "<script>alert('El correo electrónico no es válido');</script>";
     }
 }
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

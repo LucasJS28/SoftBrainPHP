@@ -10,7 +10,7 @@ $usuario = isset($_SESSION['correoUsuario']) ? $_SESSION['correoUsuario'] : null
     <a href="servicios.php"><i class="fas fa-server"></i> Nuestros Servicios</a>
     <a href="sobreNosotros.php"><i class="fas fa-clipboard-list"></i> Sobre Nosotros</a>
     <a href="clientes.php"><i class="fas fa-user-friends"></i> Nuestros Clientes</a>
-    
+    <a href="terminos.php"><i class="fas fa-file-signature"></i> Terminos y Condiciones</a>
     <?php
     if (!empty($usuario)) {
         // Si $usuario no está vacío (es decir, tiene un correo), muestra el enlace de Cotización.

@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border: 1px solid #ccc;
         border-radius: 3px;
         background-color: #f5f5f5;
+        height: 40px;
     }
 
     textarea {
@@ -147,8 +148,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         border: 1px solid red !important;
     }
 
+
+    #fecha-envio{
+        background-color: #e4e2e2 ;   
+    }
     #pais {
-        width: 102%; /* Esta regla se aplica por defecto */
+        width: 100%; /* Esta regla se aplica por defecto */
         font-size: 14px;
     }
 
@@ -161,14 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 14px;
         }
 
-        #pais {
-            width: 106%; /* Esta regla se aplica en pantallas <= 768px */
-        }
     }
-    #fecha-envio{
-        background-color: #e4e2e2 ;   
-    }
-
     #mostrar-campos-enlace{
         color: #333;
         font-weight: 700;

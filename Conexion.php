@@ -35,6 +35,22 @@ class Conexion extends PDO
         }
     }
 
+    public function correoExistente($correoUsuario)
+{
+    $sql = "SELECT correo FROM usuarios WHERE correo = :correoUsuario";
+    $consulta = $this->prepare($sql);
+    $consulta->bindParam(':correoUsuario', $correoUsuario);
+    $consulta->execute();
+    
+    $row = $consulta->fetch(PDO::FETCH_ASSOC);
+
+    if ($row) {
+        return true; // El correo ya existe en la base de datos
+    } else {
+        return false; // El correo no existe en la base de datos
+    }
+}
+
     // Función para registrar un nuevo usuario
     public function register($correoUsuario, $passUsuario)
     {
