@@ -1,0 +1,275 @@
+/* Estilos generales */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.wrapper {
+    margin: 0 auto;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.titulo{
+    text-align: center;
+    font-weight: 600;
+    color: #001973;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+}
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    max-width: 250px;
+    position: relative; /* Agrega posición relativa al nav */
+}
+
+nav .img_logo {
+    width: 200px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Alinea el centro de la imagen con el centro del nav */
+}
+
+/* Resto de tus estilos... */
+
+
+nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s; /* Agregamos una transición suave al color de fondo */
+}
+
+/* Efecto de hover */
+nav a:hover {
+    background-color: #555; /* Cambia el color de fondo al pasar el cursor */
+}
+
+.slider {
+    width: 100%;
+    max-width: 800px;
+    /* Ajusta el ancho del slider según tus preferencias */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 70%;
+    height: auto;
+    display: none;
+    margin: 0 auto;
+    border-radius: 30px;
+    border: 3px solid black;
+}
+
+.slider img:first-child {
+    display: block;
+}
+
+.tituloprincipal {
+    text-align: center;
+    color:black;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    line-height: 58px;
+
+}
+
+.accordion {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid #ddd;
+}
+
+.accordion{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.descripcion p{
+    font-size: 14px;
+    padding-left: 20px;
+}
+.panel {
+    display: none;
+    padding: 10px;
+    border-top: 2px solid #ddd;
+}
+
+.active,
+.accordion:hover {
+    background-color: #ddd;
+}
+/* Estilo para el ícono de flecha */
+.accordion::before {
+    content: '\25B6'; /* Ícono de flecha cerrada */
+    font-size: 18px;
+    float: right;
+}
+
+.active::before {
+    content: '\25BC'; /* Ícono de flecha abierta */
+}
+
+.titulosecundario {
+    text-align: center;
+    font-size: 20px;
+}
+
+
+
+.redes img {
+    width: 30px !important;
+    padding: 5px;
+    transition: transform 0.3s; /* Agregar una transición para hacerlo suave */
+}
+
+.redes img:hover {
+    transform: scale(1.5); /* Aumentar el tamaño al 120% en hover */
+}
+
+.redes img:not(:hover) {
+    transform: scale(1); /* Volver al tamaño original en not hover */
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .redes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: unset;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos responsivos */
+@media (min-width: 768px) {
+    /* En pantallas grandes, coloca la navegación a la izquierda */
+    nav {
+        width: 20%;
+        position: fixed;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .container {
+        margin-left: 25%;
+    }
+}
+
+    /* Estilos para el menú de navegación desplegable */
+    .menu-icon {
+        font-size: 30px;
+        cursor: pointer;
+        display: none;
+    }
+
+    nav input[type="checkbox"] {
+        display: none;
+    }
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .slider img{
+        width: 85%;
+    }
+
+    nav .img_logo {
+        width: 90px;
+        position: absolute;
+        top: 0;
+        left: 40px;   
+        display: block;                                                                              
+    }
+    nav {
+        width: 100%;
+        max-width: none;
+        padding: 20px 0;
+        text-align: center;
+        height: auto;
+        min-height: 40px;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    nav input[type="checkbox"]:checked + label + a {
+        display: block;
+    }
+
+    nav input[type="checkbox"]:checked + label + a {
+        display: none;
+    }
+    nav input[type="checkbox"]:checked + label + a+ a  {
+        display: none;
+    }
+    nav input[type="checkbox"]:checked + label + a+ a +a {
+        display: none;
+    }
+    nav input[type="checkbox"]:checked + label + a+ a + a +a {
+        display: none;
+    }
+    nav input[type="checkbox"]:checked + label + a+ a + a +a + a{
+        display: none;
+    }
+    nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a{
+        display: none;
+    }
+
+    nav input[type="checkbox"]:checked + label + a+ a + a +a + a+ a + a+.redes{
+        display: none;
+    }
+}
